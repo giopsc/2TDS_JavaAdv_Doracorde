@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lan="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"><!-- comment -->
+        <title>Instrumento</title><!-- comment -->
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container" align="center">
+            <table style="width: 80%" border="1" class="table table-stripped table-responsive-md">
+                <thead>
+                <tr>
+                    <th>Nome do instrumento</th>
+                    <th>Categoria</th>
+                    <th>Dificuldade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="instrumento:${allInstrumentoList}">
+                    <td th:text="${instrumento.nomeInstrumento}"></td>
+                    <td th:text="${instrumento.categoria}"></td>
+                    <td th:text="${instrumento.dificuldade}"></td>
+                    <td>
+                        <a th:href="@{/instrumento/showFormForUpdate/{id}(id=${instrumento.id})}" class="btn btn-primary">Update</a><!-- comment -->
+                        <a th:href="@{/instrumento/deleteUsuario/{id}(id=${instrumento.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="container" align="center">
+            <footer class="container">
+                <a th:href="@{/}">Voltar para a página inicial</a>
+            </footer>
+        </div>
+    </body>
+</html>
